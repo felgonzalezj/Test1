@@ -1,6 +1,10 @@
 from distutils.command.upload import upload
 import email
+from tabnanny import verbose
+from unicodedata import name
 from django.db import models
+
+from app.apps import AppConfig
 
 
 # Create your models here.
@@ -25,6 +29,9 @@ class Publicacion(models.Model):
     autor = models.IntegerField(choices=opciones_autor)
     texto = models.TextField()
     imagen = models.ImageField(upload_to="publicacion", null=True)
+    class Meta:
+        verbose_name = "Publicacion"
+        verbose_name_plural = "Publicaciones"
 
     def __int__(self) :
         return self.id_publicacion
