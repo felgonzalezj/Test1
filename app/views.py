@@ -15,3 +15,15 @@ def home(request):
 
 def login(request):
     return render(request, 'app/login.html')
+
+
+def articulos(request):
+    return render(request, 'app/articulos.html')
+
+
+def contacto(request):
+    return render(request, 'app/contacto.html')
+
+
+def nosotros(request):
+    return render(request, 'app/nosotros.html')
