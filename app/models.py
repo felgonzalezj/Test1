@@ -46,4 +46,19 @@ class Paciente(models.Model):
     idTelegram = models.CharField(max_length=50)
 
     def __str__(self) :
-        return self.nombre
+        return self.rut
+
+
+class Paciente_Fonoaudiologia(models.Model):
+    id_paciente = models.AutoField(primary_key=True)
+    rut = models.ForeignKey(Paciente, on_delete=models.PROTECT)
+    fecha = models.DateField()
+    audio_wav = models.FileField()
+    video = models.FileField()
+    feedback = models.TextField()
+    class Meta:
+        verbose_name = "Paciente fonoaudiologia"
+        verbose_name_plural = "Pacientes fonoaudiologia"
+
+    def __int__(self) :
+        return self.rut
